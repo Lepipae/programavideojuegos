@@ -1,0 +1,7 @@
+*.class
+target/
+*.jar
+.vscode/*
+!.vscode/settings.json
+.DS_Store
+thumbs.db
