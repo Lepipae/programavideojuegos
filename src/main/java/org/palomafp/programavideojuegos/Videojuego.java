@@ -129,9 +129,14 @@ public class Videojuego {
     public String toString() {
         return "Videojuego{" +
                 "nombre='" + nombre + '\'' +
+                ", añoSalida=" + añoSalida +
                 ", precio=" + precio +
+                ", duracionMedia='" + duracionMedia + '\'' +
                 ", notaMedia=" + notaMedia +
+                ", descripcionCorta='" + descripcionCorta + '\'' +
                 ", estado='" + estado + '\'' +
+                ", desarrolladora='" + (desarrolladora != null ? desarrolladora.getNombre() : "N/A") + '\'' +
+                ", genero='" + (genero != null ? genero.getNombre() : "N/A") + '\'' +
                 ", plataformas=" + plataformas.size() +
                 '}';
     }

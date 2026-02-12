@@ -89,6 +89,8 @@ public class Desarrolladora {
         return "Desarrolladora{" +
                 "nombre='" + nombre + '\'' +
                 ", ubicacion='" + ubicacion + '\'' +
+                ", descripcionCorta='" + descripcionCorta + '\'' +
+                ", añoSalida=" + añoSalida +
                 ", videojuegos=" + videojuegos.size() +
                 '}';
     }

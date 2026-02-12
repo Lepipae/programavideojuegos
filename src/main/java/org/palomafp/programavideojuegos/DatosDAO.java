@@ -1,17 +1,27 @@
 package org.palomafp.programavideojuegos;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.lang.Math;
+
 
 /**
  * Clase DAO que proporciona datos iniciales del modelo
  */
 public class DatosDAO {
     
+    ArrayList<Usuario> usuarios = null;
+
+    public DatosDAO() {
+        this.usuarios = new ArrayList<>();
+        obtenerPrimeraInstancia();
+    }
+
     /**
      * Devuelve una primera instancia del modelo con datos de ejemplo
      * @return Usuario con videojuegos y plataformas
      */
-    public static Usuario obtenerPrimeraInstancia() {
+    public void obtenerPrimeraInstancia() {
         // Crear plataforma
         Plataforma pc = new Plataforma("PC", "Moderna", "Valve", LocalDate.of(2023, 1, 1));
         
@@ -33,7 +43,58 @@ public class DatosDAO {
         Usuario usuario = new Usuario(1, "GamerMaster");
         usuario.agregarVideojuego(videojuego);
         usuario.agregarPlataforma(pc);
-        
-        return usuario;
+        this.usuarios.add(usuario);
+
+        // Usuario2
+        Plataforma ps5 = new Plataforma("PlayStation 5", "9ª", "Sony", LocalDate.of(2020, 11, 12));
+        Desarrolladora naughtyDog = new Desarrolladora("Naughty Dog", "Estados Unidos", "Desarrolladora de videojuegos de alta calidad", LocalDate.of(1984, 9, 27));
+        Genero aventura = new Genero("Aventura", "Juegos enfocados en la exploración y la narrativa");
+        Videojuego videojuego2 = new Videojuego("The Last of Us Part II", LocalDate.of(2020, 6, 19), 59.99, naughtyDog, aventura);
+        videojuego2.setDuracionMedia("20-30 horas");
+        videojuego2.setNotaMedia(9.0);
+        videojuego2.setDescripcionCorta("Una emotiva aventura post-apocalíptica con una narrativa impactante");
+        videojuego2.setEstado("en progreso");
+        videojuego2.agregarPlataforma(ps5);
+        Usuario usuario2 = new Usuario(2, "AdventureSeeker");
+        usuario2.agregarVideojuego(videojuego2);
+        usuario2.agregarPlataforma(ps5);
+        this.usuarios.add(usuario2);
+
+        // Usuario3
+        Plataforma xbox = new Plataforma("Xbox Series X", "9ª", "Microsoft", LocalDate.of(2020, 11, 10));
+        Desarrolladora cdProjekt = new Desarrolladora("CD Projekt Red", "Polonia", "Desarrolladora de videojuegos de alta calidad", LocalDate.of(2002, 2, 1));
+        Genero accion = new Genero("Acción", "Juegos enfocados en combate y adrenalina");
+        Videojuego videojuego3 = new Videojuego("Cyberpunk 2077", LocalDate.of(2020, 12, 10), 49.99, cdProjekt, accion);
+        videojuego3.setDuracionMedia("40-60 horas");
+        videojuego3.setNotaMedia(8.5);
+        videojuego3.setDescripcionCorta("Un juego de rol de ciencia ficción ambientado en un futuro distópico");
+        videojuego3.setEstado("en progreso");
+        videojuego3.agregarPlataforma(xbox);
+        Usuario usuario3 = new Usuario(3, "CyberpunkFan");
+        usuario3.agregarVideojuego(videojuego3);
+        usuario3.agregarPlataforma(xbox);
+        this.usuarios.add(usuario3);
+    }
+
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public Usuario getUsuarioPorCodigo(int codigo) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getCodigo() == codigo) {
+                return usuario;
+            }
+        }
+        return null; // Si no se encuentra el usuario
+    }
+
+
+    public Usuario getUsuarioRandom() throws IllegalStateException {
+        if (usuarios == null || usuarios.isEmpty()) {
+            throw new IllegalStateException("No hay usuarios disponibles");
+        }
+        int indice = (int)(Math.random()*usuarios.size());
+        return usuarios.get(indice);
     }
 }

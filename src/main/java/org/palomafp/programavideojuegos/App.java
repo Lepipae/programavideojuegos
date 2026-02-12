@@ -1,40 +1,75 @@
 package org.palomafp.programavideojuegos;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  * Aplicación principal para gestionar videojuegos
  *
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        // Obtener primera instancia de datos
-        Usuario usuario = DatosDAO.obtenerPrimeraInstancia();
-        
-        // Mostrar datos del usuario
-        System.out.println("=== INFORMACIÓN DEL USUARIO ===");
-        System.out.println(usuario);
-        System.out.println();
-        
-        // Mostrar plataformas
-        System.out.println("=== PLATAFORMAS ===");
-        for (Plataforma plataforma : usuario.getPlataformas()) {
-            System.out.println("- " + plataforma.getNombre() + " (" + plataforma.getFabricante() + ")");
+    public static void main( String[] args ){
+        DatosDAO datosDAO = new DatosDAO();
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        int opcion = 0;
+        Scanner scanner = new Scanner(System.in);
+        while (opcion != 6) {
+            getMenu();
+            opcion = obtenerOpcionInt(scanner);
+            switch (opcion) {
+                case 1:
+                    usuarios.add(datosDAO.getUsuarioRandom());
+                    break;
+                case 2:
+                    usuarios.addAll(datosDAO.getUsuarios());
+                    break;
+                case 3:
+                    System.out.println("Ingresa el codigo de usuario:");
+                    int codigo = obtenerOpcionInt(scanner);
+                    usuarios.add(datosDAO.getUsuarioPorCodigo(codigo));
+                    break;
+                case 4:
+                    System.out.println("Usuarios en local:");
+                    for (Usuario usuario : usuarios) {
+                        System.out.println(usuario);
+                    }
+                    break;
+                case 5:
+                    usuarios.clear();
+                    break;
+                case 6:
+                    break;
+            
+                default:
+                    System.out.println("Opcion fuera del rango, prueba otra vez");
+                    break;
+            }
         }
-        System.out.println();
-        
-        // Mostrar videojuegos
-        System.out.println("=== VIDEOJUEGOS ===");
-        for (Videojuego juego : usuario.getVideojuegos()) {
-            System.out.println("Nombre: " + juego.getNombre());
-            System.out.println("Género: " + juego.getGenero().getNombre());
-            System.out.println("Desarrolladora: " + juego.getDesarrolladora().getNombre());
-            System.out.println("Precio: $" + juego.getPrecio());
-            System.out.println("Duración Media: " + juego.getDuracionMedia());
-            System.out.println("Nota Media: " + juego.getNotaMedia() + "/10");
-            System.out.println("Descripción: " + juego.getDescripcionCorta());
-            System.out.println("Estado: " + juego.getEstado());
-            System.out.println();
+        scanner.close();
+    }
+
+    private static void getMenu() {
+        System.out.println("=== Menú Principal ===");
+        System.out.println("1. Obtener usuario random");
+        System.out.println("2. Obtener lista de usuarios");
+        System.out.println("3. Obtener un usuario por codigo");
+        System.out.println("4. Mostrar usuarios en local");
+        System.out.println("5. Borrar usuarios en local");
+        System.out.println("6. Salir");
+        System.out.print("Seleccione una opción: ");
+    }
+
+    private static int obtenerOpcionInt(Scanner scanner) {
+        int opcion = 0;
+        while (true) {
+            try {
+                opcion = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, ingrese un número válido.");
+            }
         }
+        return opcion;
     }
 }

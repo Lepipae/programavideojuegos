@@ -66,6 +66,7 @@ public class Plataforma {
                 "nombre='" + nombre + '\'' +
                 ", generacion='" + generacion + '\'' +
                 ", fabricante='" + fabricante + '\'' +
+                ", añoSalida=" + añoSalida +
                 '}';
     }
 }

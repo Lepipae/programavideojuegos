@@ -2,7 +2,6 @@ package org.palomafp.programavideojuegos;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Date;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -14,10 +13,12 @@ import org.junit.jupiter.api.DisplayName;
 public class DatosDAOTest {
 
     private Usuario usuario;
+    private DatosDAO datosDAO;
 
     @BeforeEach
     public void setUp() {
-        usuario = DatosDAO.obtenerPrimeraInstancia();
+        datosDAO = new DatosDAO();
+        usuario = datosDAO.getUsuarioPorCodigo(1);
     }
 
     @Test
@@ -162,8 +163,8 @@ public class DatosDAOTest {
     @Test
     @DisplayName("Should have multiple method calls result consistency")
     public void testConsistenciaMultiplasLlamadas() {
-        Usuario usuario1 = DatosDAO.obtenerPrimeraInstancia();
-        Usuario usuario2 = DatosDAO.obtenerPrimeraInstancia();
+        Usuario usuario1 = datosDAO.getUsuarioPorCodigo(1);
+        Usuario usuario2 = datosDAO.getUsuarioPorCodigo(1);
         
         assertEquals(usuario1.getNombreUsuario(), usuario2.getNombreUsuario(), 
                      "Multiple calls should return consistent data");
