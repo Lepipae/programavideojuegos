@@ -19,9 +19,15 @@ public class App
             opcion = obtenerOpcionInt(scanner);
             switch (opcion) {
                 case 1:
-                    usuarios.add(datosDAO.getUsuarioRandom());
+                    try {
+                        System.out.println("Obteniendo usuario aleatorio...");
+                        usuarios.add(datosDAO.getUsuarioRandom());
+                    } catch (IllegalStateException e) {
+                        System.out.println("Error al obtener usuario aleatorio: " + e.getMessage());
+                    }
                     break;
                 case 2:
+                    System.out.println("Obteniendo todos los usuarios");
                     usuarios.addAll(datosDAO.getUsuarios());
                     break;
                 case 3:
@@ -36,9 +42,11 @@ public class App
                     }
                     break;
                 case 5:
+                    System.out.println("Borrando usuarios");
                     usuarios.clear();
                     break;
                 case 6:
+                    System.out.println("Saliendo del programa");
                     break;
             
                 default:
