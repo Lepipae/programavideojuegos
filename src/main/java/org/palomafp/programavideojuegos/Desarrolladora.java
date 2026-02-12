@@ -2,14 +2,14 @@ package org.palomafp.programavideojuegos;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Desarrolladora {
     private String nombre;
     private String ubicacion;
     private String descripcionCorta;
     private List<Videojuego> videojuegos;
-    private Date añoSalida;
+    private LocalDate añoSalida;
 
     // Constructor vacío
     public Desarrolladora() {
@@ -24,7 +24,7 @@ public class Desarrolladora {
     }
 
     // Constructor con todos los parámetros
-    public Desarrolladora(String nombre, String ubicacion, String descripcionCorta, Date añoSalida) {
+    public Desarrolladora(String nombre, String ubicacion, String descripcionCorta, LocalDate añoSalida) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.descripcionCorta = descripcionCorta;
@@ -65,11 +65,11 @@ public class Desarrolladora {
         this.videojuegos = videojuegos;
     }
 
-    public Date getAñoSalida() {
+    public LocalDate getAñoSalida() {
         return añoSalida;
     }
 
-    public void setAñoSalida(Date añoSalida) {
+    public void setAñoSalida(LocalDate añoSalida) {
         this.añoSalida = añoSalida;
     }
 

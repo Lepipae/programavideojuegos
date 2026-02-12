@@ -24,7 +24,7 @@ public class Main {
         System.out.println("Desarrolladora creada: " + rockstar + "\n");
 
         // Crear videojuego
-        Videojuego gta = new Videojuego("Grand Theft Auto VI", new java.util.Date(), 69.99, rockstar, accion);
+        Videojuego gta = new Videojuego("Grand Theft Auto VI", java.time.LocalDate.now(), 69.99, rockstar, accion);
         gta.setDuracionMedia("100+ horas");
         gta.setNotaMedia(9.5);
         gta.setDescripcionCorta("Un épico mundo abierto de crimen y aventura");

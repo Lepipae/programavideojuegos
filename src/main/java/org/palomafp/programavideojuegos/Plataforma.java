@@ -1,12 +1,12 @@
 package org.palomafp.programavideojuegos;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Plataforma {
     private String nombre;
     private String generacion;
     private String fabricante;
-    private Date añoSalida;
+    private LocalDate añoSalida;
 
     // Constructor vacío
     public Plataforma() {
@@ -20,7 +20,7 @@ public class Plataforma {
     }
 
     // Constructor con todos los parámetros
-    public Plataforma(String nombre, String generacion, String fabricante, Date añoSalida) {
+    public Plataforma(String nombre, String generacion, String fabricante, LocalDate añoSalida) {
         this.nombre = nombre;
         this.generacion = generacion;
         this.fabricante = fabricante;
@@ -52,11 +52,11 @@ public class Plataforma {
         this.fabricante = fabricante;
     }
 
-    public Date getAñoSalida() {
+    public LocalDate getAñoSalida() {
         return añoSalida;
     }
 
-    public void setAñoSalida(Date añoSalida) {
+    public void setAñoSalida(LocalDate añoSalida) {
         this.añoSalida = añoSalida;
     }
 
