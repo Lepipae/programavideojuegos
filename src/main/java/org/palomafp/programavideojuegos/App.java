@@ -58,7 +58,7 @@ public class App
     }
 
     private static void getMenu() {
-        System.out.println("=== Menú Principal ===");
+        System.out.println("--------------Menú Principal-----------------");
         System.out.println("1. Obtener usuario random");
         System.out.println("2. Obtener lista de usuarios");
         System.out.println("3. Obtener un usuario por codigo");

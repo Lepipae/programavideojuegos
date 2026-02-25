@@ -79,11 +79,11 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "codigo=" + codigo +
-                ", nombreUsuario='" + nombreUsuario + '\'' +
-                ", videojuegos=" + videojuegos.size() +
-                ", plataformas=" + plataformas.size() +
+        return "Usuario: " +
+                "codigo: " + codigo +
+                ", nombreUsuario: '" + nombreUsuario + '\'' +
+                ", videojuegos: " + videojuegos.size() +
+                ", plataformas: " + plataformas.size() +
                 '}';
     }
 }
