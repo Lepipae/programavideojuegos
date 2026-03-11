@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class App 
 {
     public static void main( String[] args ){
-        DatosDAO datosDAO = new DatosDAO();
+        UsuariosDAO datosDAO = new UsuariosDAO();
         ArrayList<Usuario> usuarios = new ArrayList<>();
         int opcion = 0;
         Scanner scanner = new Scanner(System.in);
@@ -28,7 +28,7 @@ public class App
                     break;
                 case 2:
                     System.out.println("Obteniendo todos los usuarios");
-                    usuarios.addAll(datosDAO.getUsuarios());
+                    usuarios.addAll(datosDAO.getAllUsuarios());
                     break;
                 case 3:
                     System.out.println("Ingresa el codigo de usuario:");

@@ -8,23 +8,13 @@ public class Plataforma {
     private String fabricante;
     private LocalDate añoSalida;
 
-    // Constructor vacío
-    public Plataforma() {
-    }
-
-    // Constructor con parámetros principales
-    public Plataforma(String nombre, String generacion, String fabricante) {
-        this.nombre = nombre;
-        this.generacion = generacion;
-        this.fabricante = fabricante;
-    }
 
     // Constructor con todos los parámetros
     public Plataforma(String nombre, String generacion, String fabricante, LocalDate añoSalida) {
-        this.nombre = nombre;
-        this.generacion = generacion;
-        this.fabricante = fabricante;
-        this.añoSalida = añoSalida;
+        setNombre(nombre);
+        setGeneracion(generacion);
+        setFabricante(fabricante);
+        setAñoSalida(añoSalida);
     }
 
     // Getters y Setters

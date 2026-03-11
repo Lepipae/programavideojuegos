@@ -13,11 +13,11 @@ import org.junit.jupiter.api.DisplayName;
 public class DatosDAOTest {
 
     private Usuario usuario;
-    private DatosDAO datosDAO;
+    private UsuariosDAO datosDAO;
 
     @BeforeEach
     public void setUp() {
-        datosDAO = new DatosDAO();
+        datosDAO = new UsuariosDAO();
         usuario = datosDAO.getUsuarioPorCodigo(1);
     }
 
@@ -177,34 +177,34 @@ public class DatosDAOTest {
     @Test
     @DisplayName("Debe devolver la lista de todos los usuarios")
     public void testGetUsuarios() {
-        assertNotNull(datosDAO.getUsuarios(), "La lista de usuarios no debe ser nula");
-        assertFalse(datosDAO.getUsuarios().isEmpty(), "La lista de usuarios no debe estar vacía");
+        assertNotNull(datosDAO.getAllUsuarios(), "La lista de usuarios no debe ser nula");
+        assertFalse(datosDAO.getAllUsuarios().isEmpty(), "La lista de usuarios no debe estar vacía");
     }
 
     @Test
     @DisplayName("Debe devolver exactamente 3 usuarios")
     public void testGetUsuariosSize() {
-        assertEquals(3, datosDAO.getUsuarios().size(), "Debe haber exactamente 3 usuarios");
+        assertEquals(3, datosDAO.getAllUsuarios().size(), "Debe haber exactamente 3 usuarios");
     }
 
     @Test
     @DisplayName("Debe contener usuario con código 1")
     public void testGetUsuariosContainsCodigo1() {
-        assertTrue(datosDAO.getUsuarios().stream().anyMatch(u -> u.getCodigo() == 1), 
+        assertTrue(datosDAO.getAllUsuarios().stream().anyMatch(u -> u.getCodigo() == 1), 
                    "Debe contener usuario con código 1");
     }
 
     @Test
     @DisplayName("Debe contener usuario con código 2")
     public void testGetUsuariosContainsCodigo2() {
-        assertTrue(datosDAO.getUsuarios().stream().anyMatch(u -> u.getCodigo() == 2), 
+        assertTrue(datosDAO.getAllUsuarios().stream().anyMatch(u -> u.getCodigo() == 2), 
                    "Debe contener usuario con código 2");
     }
 
     @Test
     @DisplayName("Debe contener usuario con código 3")
     public void testGetUsuariosContainsCodigo3() {
-        assertTrue(datosDAO.getUsuarios().stream().anyMatch(u -> u.getCodigo() == 3), 
+        assertTrue(datosDAO.getAllUsuarios().stream().anyMatch(u -> u.getCodigo() == 3), 
                    "Debe contener usuario con código 3");
     }
 
@@ -300,7 +300,7 @@ public class DatosDAOTest {
     @Test
     @DisplayName("Debe lanzar excepción cuando no hay usuarios disponibles")
     public void testGetUsuarioRandomExceptionWhenEmpty() {
-        DatosDAO emptyDao = new DatosDAO();
+        UsuariosDAO emptyDao = new UsuariosDAO();
         // Vaciar la lista de usuarios
         emptyDao.getUsuarios().clear();
         
@@ -313,7 +313,7 @@ public class DatosDAOTest {
     @Test
     @DisplayName("Debe lanzar excepción con mensaje correcto")
     public void testGetUsuarioRandomExceptionMessage() {
-        DatosDAO emptyDao = new DatosDAO();
+        UsuariosDAO emptyDao = new UsuariosDAO();
         // Vaciar la lista de usuarios
         emptyDao.getUsuarios().clear();
         

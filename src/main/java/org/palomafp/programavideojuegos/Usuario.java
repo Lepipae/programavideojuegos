@@ -17,8 +17,8 @@ public class Usuario {
 
     // Constructor con parámetros
     public Usuario(int codigo, String nombreUsuario) {
-        this.codigo = codigo;
-        this.nombreUsuario = nombreUsuario;
+        setCodigo(codigo);
+        setNombreUsuario(nombreUsuario);
         this.videojuegos = new ArrayList<>();
         this.plataformas = new ArrayList<>();
     }
@@ -44,16 +44,8 @@ public class Usuario {
         return videojuegos;
     }
 
-    public void setVideojuegos(List<Videojuego> videojuegos) {
-        this.videojuegos = videojuegos;
-    }
-
     public List<Plataforma> getPlataformas() {
         return plataformas;
-    }
-
-    public void setPlataformas(List<Plataforma> plataformas) {
-        this.plataformas = plataformas;
     }
 
     // Métodos auxiliares

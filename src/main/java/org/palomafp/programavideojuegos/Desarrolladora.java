@@ -11,24 +11,19 @@ public class Desarrolladora {
     private List<Videojuego> videojuegos;
     private LocalDate añoSalida;
 
-    // Constructor vacío
-    public Desarrolladora() {
-        this.videojuegos = new ArrayList<>();
-    }
-
     // Constructor con parámetros principales
     public Desarrolladora(String nombre, String ubicacion) {
-        this.nombre = nombre;
-        this.ubicacion = ubicacion;
+        setNombre(nombre);
+        setUbicacion(ubicacion);
         this.videojuegos = new ArrayList<>();
     }
 
     // Constructor con todos los parámetros
     public Desarrolladora(String nombre, String ubicacion, String descripcionCorta, LocalDate añoSalida) {
-        this.nombre = nombre;
-        this.ubicacion = ubicacion;
-        this.descripcionCorta = descripcionCorta;
-        this.añoSalida = añoSalida;
+        setNombre(nombre);
+        setUbicacion(ubicacion);
+        setDescripcionCorta(descripcionCorta);
+        setAñoSalida(añoSalida);
         this.videojuegos = new ArrayList<>();
     }
 
@@ -59,10 +54,6 @@ public class Desarrolladora {
 
     public List<Videojuego> getVideojuegos() {
         return videojuegos;
-    }
-
-    public void setVideojuegos(List<Videojuego> videojuegos) {
-        this.videojuegos = videojuegos;
     }
 
     public LocalDate getAñoSalida() {

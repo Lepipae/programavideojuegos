@@ -8,11 +8,11 @@ import java.lang.Math;
 /**
  * Clase DAO que proporciona datos iniciales del modelo
  */
-public class DatosDAO {
+public class UsuariosDAO {
     
     ArrayList<Usuario> usuarios = null;
 
-    public DatosDAO() {
+    public UsuariosDAO() {
         this.usuarios = new ArrayList<>();
         obtenerPrimeraInstancia();
     }
@@ -76,7 +76,7 @@ public class DatosDAO {
         this.usuarios.add(usuario3);
     }
 
-    public ArrayList<Usuario> getUsuarios() {
+    public ArrayList<Usuario> getAllUsuarios() {
         return usuarios;
     }
 

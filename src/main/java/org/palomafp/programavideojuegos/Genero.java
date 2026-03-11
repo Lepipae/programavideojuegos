@@ -8,15 +8,10 @@ public class Genero {
     private String descripcion;
     private List<Videojuego> juegos;
 
-    // Constructor vacío
-    public Genero() {
-        this.juegos = new ArrayList<>();
-    }
-
     // Constructor con parámetros principales
     public Genero(String nombre, String descripcion) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+        setNombre(nombre);
+        setDescripcion(descripcion);
         this.juegos = new ArrayList<>();
     }
 
@@ -39,10 +34,6 @@ public class Genero {
 
     public List<Videojuego> getJuegos() {
         return juegos;
-    }
-
-    public void setJuegos(List<Videojuego> juegos) {
-        this.juegos = juegos;
     }
 
     // Métodos auxiliares
