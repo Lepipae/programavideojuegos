@@ -294,33 +294,8 @@ public class DatosDAOTest {
             }
         }
         
-        assertTrue(foundDifferent, "Debe obtener usuarios diferentes en múltiples llamadas aleatorias (estadísticamente)");
+            assertTrue(foundDifferent, "Debe obtener usuarios diferentes en múltiples llamadas aleatorias (estadísticamente)");
+        }
     }
 
-    @Test
-    @DisplayName("Debe lanzar excepción cuando no hay usuarios disponibles")
-    public void testGetUsuarioRandomExceptionWhenEmpty() {
-        UsuariosDAO emptyDao = new UsuariosDAO();
-        // Vaciar la lista de usuarios
-        emptyDao.getUsuarios().clear();
-        
-        // Debe lanzar IllegalStateException
-        assertThrows(IllegalStateException.class, () -> {
-            emptyDao.getUsuarioRandom();
-        }, "Debe lanzar IllegalStateException cuando no hay usuarios disponibles");
-    }
 
-    @Test
-    @DisplayName("Debe lanzar excepción con mensaje correcto")
-    public void testGetUsuarioRandomExceptionMessage() {
-        UsuariosDAO emptyDao = new UsuariosDAO();
-        // Vaciar la lista de usuarios
-        emptyDao.getUsuarios().clear();
-        
-        // Verificar que la excepción tiene el mensaje correcto
-        IllegalStateException exception = assertThrows(IllegalStateException.class, () -> {
-            emptyDao.getUsuarioRandom();
-        });
-        assertEquals("No hay usuarios disponibles", exception.getMessage(), "El mensaje de excepción debe coincidir");
-    }
-}

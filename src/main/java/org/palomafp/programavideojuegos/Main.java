@@ -3,13 +3,13 @@ package org.palomafp.programavideojuegos;
 import java.time.LocalDate;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void sisi(String[] args) {
         System.out.println("=== Programa de Gestión de Videojuegos ===\n");
 
         // Crear plataformas
         Plataforma ps5 = new Plataforma("PlayStation 5", "9ª", "Sony", LocalDate.of(2020, 11, 19));
         Plataforma xbox = new Plataforma("Xbox Series X", "9ª", "Microsoft", LocalDate.of(0, 0, 0));
-        Plataforma pc = new Plataforma("PC", "N/A", "Múltiples");
+        Plataforma pc = new Plataforma("PC", "N/A", "Múltiples", LocalDate.of(0, 0, 0));
 
         System.out.println("Plataformas creadas:");
         System.out.println(ps5);
