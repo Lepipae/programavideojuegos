@@ -18,7 +18,7 @@ public class App
             getMenu();
             opcion = obtenerOpcionInt(scanner);
             switch (opcion) {
-                case 1:
+                case 1:     // Obtener un usuario aleatorio
                     try {
                         System.out.println("Obteniendo usuario aleatorio...");
                         usuarios.add(datosDAO.getUsuarioRandom());
