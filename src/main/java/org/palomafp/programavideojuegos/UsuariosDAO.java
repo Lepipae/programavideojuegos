@@ -98,7 +98,11 @@ public class UsuariosDAO {
         return null; // Si no se encuentra el usuario
     }
 
-
+    /**
+     * Devuelve un usuario aleatorio de la lista de usuarios
+     * @return  Usuario aleatorio
+     * @throws IllegalStateException    Si no hay usuarios disponibles
+     */
     public Usuario getUsuarioRandom() throws IllegalStateException {
         if (usuarios == null || usuarios.isEmpty()) {
             throw new IllegalStateException("No hay usuarios disponibles");
