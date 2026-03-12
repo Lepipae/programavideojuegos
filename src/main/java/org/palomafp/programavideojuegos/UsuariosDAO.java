@@ -76,10 +76,19 @@ public class UsuariosDAO {
         this.usuarios.add(usuario3);
     }
 
+    /**
+     * Devuelve la lista de usuarios por defecto entera
+     * @return  Lista de usuarios entera
+     */
     public ArrayList<Usuario> getAllUsuarios() {
         return usuarios;
     }
 
+    /**
+     * Devuelve un usuario identificado por su codigo
+     * @param codigo
+     * @return
+     */
     public Usuario getUsuarioPorCodigo(int codigo) {
         for (Usuario usuario : usuarios) {
             if (usuario.getCodigo() == codigo) {

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
+/**
+ * Clase que define una desarrolladora de videojuegos
+ * Tiene nombre ubicacion una descripcion su año de fundacion y una lista de videojuegos
+ * @author  Andrés López de la Vía
+ */
 public class Desarrolladora {
     private String nombre;
     private String ubicacion;
