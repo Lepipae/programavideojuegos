@@ -138,4 +138,9 @@ public class App {
 		}
 		return opcion;
 	}
+	
+	/**
+	 * Constructor base
+	 */
+	public App() {}
 }

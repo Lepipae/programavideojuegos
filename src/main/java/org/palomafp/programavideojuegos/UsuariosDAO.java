@@ -12,14 +12,16 @@ public class UsuariosDAO {
     
     ArrayList<Usuario> usuarios = null;
 
+    /**
+     * Constructor de la clase
+     */
     public UsuariosDAO() {
         this.usuarios = new ArrayList<>();
         obtenerPrimeraInstancia();
     }
 
     /**
-     * Devuelve una primera instancia del modelo con datos de ejemplo
-     * @return Usuario con videojuegos y plataformas
+     * Obtiene una primera instancia de un usuario
      */
     public void obtenerPrimeraInstancia() {
         // Crear plataforma
@@ -86,8 +88,8 @@ public class UsuariosDAO {
 
     /**
      * Devuelve un usuario identificado por su codigo
-     * @param codigo
-     * @return
+     * @param codigo	Codigo del usuario
+     * @return	El usuario deseado
      */
     public Usuario getUsuarioPorCodigo(int codigo) {
         for (Usuario usuario : usuarios) {

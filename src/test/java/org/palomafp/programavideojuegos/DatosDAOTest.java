@@ -15,30 +15,45 @@ public class DatosDAOTest {
     private Usuario usuario;
     private UsuariosDAO datosDAO;
 
+    /**
+     * Setup de las pruebas
+     */
     @BeforeEach
     public void setUp() {
         datosDAO = new UsuariosDAO();
         usuario = datosDAO.getUsuarioPorCodigo(1);
     }
 
+    /**
+     * Obtiene una primera instancia que no sea nula
+     */
     @Test
     @DisplayName("Debe obtener la primera instancia no nula")
     public void testObtenerPrimeraInstanciaNotNull() {
         assertNotNull(usuario, "El usuario no debe ser nulo");
     }
 
+    /**
+     * Crea un usuario con una identificacion valida
+     */
     @Test
     @DisplayName("Debe crear usuario con identificación correcta")
     public void testUsuarioCodigoCorreto() {
         assertEquals(1, usuario.getCodigo(), "El código de usuario debe ser 1");
     }
 
+    /**
+     * El usuario tiene que tener un nombre valido
+     */
     @Test
     @DisplayName("Debe crear usuario con nombre correcto")
     public void testUsuarioNombreCorreto() {
         assertEquals("GamerMaster", usuario.getNombreUsuario(), "El nombre de usuario debe ser GamerMaster");
     }
 
+    /**
+     * El usuario creado debe de tener videojuegos
+     */
     @Test
     @DisplayName("Debe tener videojuegos")
     public void testUsuarioTieneVideojuegos() {
@@ -46,6 +61,9 @@ public class DatosDAOTest {
         assertFalse(usuario.getVideojuegos().isEmpty(), "El usuario debe tener al menos un videojuego");
     }
 
+    /**
+     * El usuario creado tiene que tener plataformas
+     */
     @Test
     @DisplayName("Debe tener plataformas")
     public void testUsuarioTienePlataformas() {
@@ -53,6 +71,9 @@ public class DatosDAOTest {
         assertFalse(usuario.getPlataformas().isEmpty(), "El usuario debe tener al menos una plataforma");
     }
 
+    /**
+     * El videojuego tiene que ser el esperado
+     */
     @Test
     @DisplayName("Debe tener el videojuego The Witcher 3")
     public void testVideojuegoTheWitcher3() {
@@ -62,6 +83,9 @@ public class DatosDAOTest {
         assertEquals("The Witcher 3", videojuego.getNombre(), "El nombre del videojuego debe ser The Witcher 3");
     }
 
+    /**
+     * El precio del videojuego debe ser el esperado
+     */
     @Test
     @DisplayName("Debe tener precio de videojuego correcto")
     public void testVideojuegoPrecio() {
@@ -69,6 +93,9 @@ public class DatosDAOTest {
         assertEquals(39.99, videojuego.getPrecio(), 0.01, "El precio debe ser 39.99");
     }
 
+    /**
+     * La calificacion del videojuego debe ser la esperada
+     */
     @Test
     @DisplayName("Debe tener calificación de videojuego correcta")
     public void testVideojuegoNotaMedia() {
@@ -76,6 +103,9 @@ public class DatosDAOTest {
         assertEquals(9.3, videojuego.getNotaMedia(), 0.01, "La calificación debe ser 9.3");
     }
 
+    /**
+     * La duracion del videojuego debe ser la esperada
+     */
     @Test
     @DisplayName("Debe tener duración de videojuego correcta")
     public void testVideojuegoDuracion() {
@@ -83,6 +113,9 @@ public class DatosDAOTest {
         assertEquals("50-100 horas", videojuego.getDuracionMedia(), "La duración debe ser 50-100 horas");
     }
 
+    /**
+     * La descripcion del videojuego debe ser la esperada
+     */
     @Test
     @DisplayName("Debe tener descripción de videojuego correcta")
     public void testVideojuegoDescripcion() {
@@ -92,6 +125,9 @@ public class DatosDAOTest {
                      "La descripción debe coincidir");
     }
 
+    /**
+     * debe de tener un estado valido
+     */
     @Test
     @DisplayName("Debe tener estado de videojuego correcto")
     public void testVideojuegoEstado() {
@@ -99,6 +135,9 @@ public class DatosDAOTest {
         assertEquals("completado", videojuego.getEstado(), "El estado debe ser completado");
     }
 
+    /**
+     * The witcher 3 tiene que tener el genero RPG
+     */
     @Test
     @DisplayName("Debe tener género RPG")
     public void testVideojuegoGenero() {
@@ -107,6 +146,9 @@ public class DatosDAOTest {
         assertEquals("RPG", videojuego.getGenero().getNombre(), "El género debe ser RPG");
     }
 
+    /**
+     * Tiene que tener asociada una desarrolladora
+     */
     @Test
     @DisplayName("Debe tener desarrolladora")
     public void testVideojuegoDesarrolladora() {
@@ -116,6 +158,9 @@ public class DatosDAOTest {
                      "El nombre de la desarrolladora debe ser Entwickler Studio");
     }
 
+    /**
+     * La desarrolladora debe ser alemana
+     */
     @Test
     @DisplayName("Debe tener desarrolladora de Alemania")
     public void testDesarrolladoraPais() {
@@ -123,6 +168,9 @@ public class DatosDAOTest {
         assertEquals("Alemania", videojuego.getDesarrolladora().getUbicacion(), "El país debe ser Alemania");
     }
 
+    /**
+     * La plataforma debe de ser PC
+     */
     @Test
     @DisplayName("Debe tener plataforma PC")
     public void testTienePlataformaPC() {
@@ -132,6 +180,9 @@ public class DatosDAOTest {
         assertEquals("PC", plataforma.getNombre(), "La plataforma debe ser PC");
     }
 
+    /**
+     * Revisa si el juego tiene plataforma
+     */
     @Test
     @DisplayName("Debe tener videojuego con plataforma")
     public void testVideojuegoTienePlataforma() {
@@ -139,6 +190,9 @@ public class DatosDAOTest {
         assertFalse(videojuego.getPlataformas().isEmpty(), "El videojuego debe tener al menos una plataforma");
     }
 
+    /**
+     * Revisa si la plataforma es la esperada
+     */
     @Test
     @DisplayName("Debe tener nombre de plataforma correcto")
     public void testPlataformaNombre() {
@@ -146,6 +200,9 @@ public class DatosDAOTest {
         assertEquals("PC", plataforma.getNombre(), "El nombre de la plataforma debe ser PC");
     }
 
+    /**
+     * Revisa que la generacion de la plataforma sea la correca
+     */
     @Test
     @DisplayName("Debe tener categoría de plataforma correcta")
     public void testPlataformaCategoria() {
@@ -153,6 +210,9 @@ public class DatosDAOTest {
         assertEquals("Moderna", plataforma.getGeneracion(), "La generación de la plataforma debe ser Moderna");
     }
 
+    /**
+     * revisa que el fabricante de la plataforma sea el correcto
+     */
     @Test
     @DisplayName("Debe tener fabricante de plataforma correcto")
     public void testPlataformaFabricante() {
@@ -160,6 +220,9 @@ public class DatosDAOTest {
         assertEquals("Valve", plataforma.getFabricante(), "El fabricante debe ser Valve");
     }
 
+    /**
+     * Revisa consistencia de los datos en multiples llamadas
+     */
     @Test
     @DisplayName("Debe tener consistencia en múltiples llamadas")
     public void testConsistenciaMultiplasLlamadas() {
@@ -174,6 +237,9 @@ public class DatosDAOTest {
     }
 
     // Pruebas para el método getUsuarios()
+    /**
+     * Revisa que devuelva la lista entera de usuarios de prueba
+     */
     @Test
     @DisplayName("Debe devolver la lista de todos los usuarios")
     public void testGetUsuarios() {
@@ -181,12 +247,18 @@ public class DatosDAOTest {
         assertFalse(datosDAO.getAllUsuarios().isEmpty(), "La lista de usuarios no debe estar vacía");
     }
 
+    /**
+     * Revisa que devuelva 3 usuarios
+     */
     @Test
     @DisplayName("Debe devolver exactamente 3 usuarios")
     public void testGetUsuariosSize() {
         assertEquals(3, datosDAO.getAllUsuarios().size(), "Debe haber exactamente 3 usuarios");
     }
 
+    /**
+     * Que la lista tenga el usuario 1
+     */
     @Test
     @DisplayName("Debe contener usuario con código 1")
     public void testGetUsuariosContainsCodigo1() {
@@ -194,6 +266,9 @@ public class DatosDAOTest {
                    "Debe contener usuario con código 1");
     }
 
+    /**
+     * Que contenga el 2
+     */
     @Test
     @DisplayName("Debe contener usuario con código 2")
     public void testGetUsuariosContainsCodigo2() {
@@ -201,6 +276,9 @@ public class DatosDAOTest {
                    "Debe contener usuario con código 2");
     }
 
+    /**
+     * Y que contenga el 3
+     */
     @Test
     @DisplayName("Debe contener usuario con código 3")
     public void testGetUsuariosContainsCodigo3() {
@@ -209,6 +287,9 @@ public class DatosDAOTest {
     }
 
     // Pruebas para el método getUsuarioPorCodigo(int codigo)
+    /**
+     * Que recoga bien el usuario 1
+     */
     @Test
     @DisplayName("Debe obtener usuario 1 por código")
     public void testGetUsuarioPorCodigo1() {
@@ -218,6 +299,9 @@ public class DatosDAOTest {
         assertEquals("GamerMaster", user.getNombreUsuario(), "El nombre de usuario 1 debe ser GamerMaster");
     }
 
+    /**
+     * Que recoga bien el usuario 2
+     */
     @Test
     @DisplayName("Debe obtener usuario 2 por código")
     public void testGetUsuarioPorCodigo2() {
@@ -227,6 +311,9 @@ public class DatosDAOTest {
         assertEquals("AdventureSeeker", user.getNombreUsuario(), "El nombre de usuario 2 debe ser AdventureSeeker");
     }
 
+    /**
+     * Que recoga bien el usuario 3
+     */
     @Test
     @DisplayName("Debe obtener usuario 3 por código")
     public void testGetUsuarioPorCodigo3() {
@@ -236,6 +323,9 @@ public class DatosDAOTest {
         assertEquals("CyberpunkFan", user.getNombreUsuario(), "El nombre de usuario 3 debe ser CyberpunkFan");
     }
 
+    /**
+     * Que devuelva nulo para un usuario que no existe
+     */
     @Test
     @DisplayName("Debe devolver nulo para código de usuario inexistente")
     public void testGetUsuarioPorCodigoNoExistente() {
@@ -243,6 +333,9 @@ public class DatosDAOTest {
         assertNull(user, "El usuario con código inexistente debe ser nulo");
     }
 
+    /**
+     * Comprueba que el usuario 2 tenga el the last of us
+     */
     @Test
     @DisplayName("Usuario 2 debe tener The Last of Us Part II")
     public void testUsuario2Videojuego() {
@@ -253,6 +346,9 @@ public class DatosDAOTest {
                      "El usuario 2 debe tener The Last of Us Part II");
     }
 
+    /**
+     * Comprueba que el usuario 3 tenga el cyberpunk
+     */
     @Test
     @DisplayName("Usuario 3 debe tener Cyberpunk 2077")
     public void testUsuario3Videojuego() {
@@ -264,6 +360,9 @@ public class DatosDAOTest {
     }
 
     // Pruebas para el método getUsuarioRandom()
+    /**
+     * Que el usuario random no sea nulo
+     */
     @Test
     @DisplayName("Debe devolver usuario aleatorio no nulo")
     public void testGetUsuarioRandomNotNull() {
@@ -271,6 +370,9 @@ public class DatosDAOTest {
         assertNotNull(randomUser, "El usuario aleatorio no debe ser nulo");
     }
 
+    /**
+     * que el usuario random sea valido
+     */
     @Test
     @DisplayName("Debe devolver usuario con códigos válidos")
     public void testGetUsuarioRandomValidCode() {
@@ -279,6 +381,9 @@ public class DatosDAOTest {
                    "El código de usuario aleatorio debe estar entre 1 y 3");
     }
 
+    /**
+     * Que devuelva diferentes en llamadas random
+     */
     @Test
     @DisplayName("Debe devolver usuarios diferentes en múltiples llamadas aleatorias")
     public void testGetUsuarioRandomVariety() {
@@ -296,6 +401,12 @@ public class DatosDAOTest {
         
             assertTrue(foundDifferent, "Debe obtener usuarios diferentes en múltiples llamadas aleatorias (estadísticamente)");
         }
-    }
+	
+    /**
+     * Constructor base
+     */
+    public DatosDAOTest() {}
+}
+
 
 

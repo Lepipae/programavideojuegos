@@ -4,6 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que instancia un videojjuego que contiene los datos nombre, año de salida, precio, duracion media, nota media
+ * descripcion corta que actua como un enum, desarrolladora, genero y tiene una lista de plataformas en las que ha salido el juego
+ * 
+ * @author lepipae
+ * 
+ */
 public class Videojuego {
     private String nombre;
     private LocalDate añoSalida;
@@ -16,13 +23,22 @@ public class Videojuego {
     private Genero genero;
     private List<Plataforma> plataformas;
 
-    // Constructor vacío
+    /**
+     * Constructor vacio
+     */
     public Videojuego() {
         this.plataformas = new ArrayList<>();
         this.estado = "sin empezar";
     }
 
-    // Constructor con parámetros principales
+    /**
+     * Constructor con todos los parametros
+     * @param nombre	Nombre del juego
+     * @param añoSalida	Año de salida del juego
+     * @param precio	Precio promedio del juego
+     * @param desarrolladora	Desarrolladora del juego
+     * @param genero	Genero del juego
+     */
     public Videojuego(String nombre, LocalDate añoSalida, double precio, Desarrolladora desarrolladora, Genero genero) {
         this.nombre = nombre;
         this.añoSalida = añoSalida;
@@ -194,13 +210,20 @@ public class Videojuego {
         this.plataformas = plataformas;
     }
 
-    // Métodos auxiliares
+    /**
+     * Agrega una plataforma a la lista del videojuego
+     * @param plataforma	Plataforma a añadir
+     */
     public void agregarPlataforma(Plataforma plataforma) {
         if (!this.plataformas.contains(plataforma)) {
             this.plataformas.add(plataforma);
         }
     }
 
+    /**
+     * Elimina una plataforma de la lista del videojuego
+     * @param plataforma	Plataforma a eliminar
+     */
     public void eliminarPlataforma(Plataforma plataforma) {
         this.plataformas.remove(plataforma);
     }

@@ -3,6 +3,10 @@ package org.palomafp.programavideojuegos;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que define a un usuario que tiene un nombre, codigo y videojuegos y plataformas
+ * @author lepipae
+ */
 public class Usuario {
     private int codigo;
     private String nombreUsuario;
@@ -79,7 +83,7 @@ public class Usuario {
 
     /**
      * Añade un videojuego a la lista de videojuegos del usuario
-     * @param videojuego
+     * @param videojuego Videojuego a añadir
      */
     public void agregarVideojuego(Videojuego videojuego) {
         if (!this.videojuegos.contains(videojuego)) {
@@ -89,7 +93,7 @@ public class Usuario {
 
     /**
      * Elimina un videojuego de la lista de videojuegos del usuario
-     * @param videojuego
+     * @param videojuego	Videojuego a borrar
      */
     public void eliminarVideojuego(Videojuego videojuego) {
         this.videojuegos.remove(videojuego);
@@ -97,7 +101,7 @@ public class Usuario {
 
     /**
      * Añade una plataforma a la lista de plataformas del usuario
-     * @param plataforma
+     * @param plataforma	Plataforma a añadir
      */
     public void agregarPlataforma(Plataforma plataforma) {
         if (!this.plataformas.contains(plataforma)) {
@@ -107,7 +111,7 @@ public class Usuario {
 
     /**
      * Elimina una plataforma de la lista de plataformas del usuario
-      * @param plataforma
+      * @param plataforma	Plataforma a eliminar
       */
     public void eliminarPlataforma(Plataforma plataforma) {
         this.plataformas.remove(plataforma);
