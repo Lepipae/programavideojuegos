@@ -129,11 +129,11 @@ public class App {
 		while (true) {
 			try {
 				opcion = scanner.nextInt();
-				scanner.next();
+				scanner.nextLine();
 				break;
 			} catch (InputMismatchException e) {
 				System.out.println("Por favor, ingrese un número válido.");
-				scanner.next();
+				scanner.nextLine();
 			}
 		}
 		return opcion;
